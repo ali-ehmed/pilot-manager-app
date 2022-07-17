@@ -5,8 +5,11 @@ class RequestPaymentsWorker
              exchange: PAYMENT_REQUESTS_EXCHANGE
 
   def work(raw_payment)
-    puts '*' * 100
-    pp raw_payment
+    payload = JSON.parse(raw_payment)
+    PaymentRequest
+      .create_with(payment_payload: payload)
+      .find_or_create_by!(payment_id: payload.delete('id'))
+
     ack!
   end
 end

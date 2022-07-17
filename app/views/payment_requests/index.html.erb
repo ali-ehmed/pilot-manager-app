@@ -1,3 +1,26 @@
 <div class="px-5">
-  <h1 class="font-bold text-4xl text-blue-500 mb-3">Payment Requests</h1>
+  <h1 class="font-bold text-3xl text-blue-500 mb-3">Payment Requests</h1>
 </div>
+
+<table class="table">
+  <thead>
+  <tr>
+    <th>Amount</th>
+    <th>Currency</th>
+    <th>Description</th>
+    <th>Approved</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+    <%- @payment_requests.each do |payment_request| %>
+    <tr>
+      <th><%= display_amount(payment_request.payment_amount, payment_request.payment_currency) %></th>
+      <th><%= payment_request.payment_currency.upcase %></th>
+      <th><%= payment_request.payment_description %></th>
+      <th>---</th>
+      <th></th>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
