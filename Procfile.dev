@@ -1,2 +1,3 @@
 web: bin/rails server -p $DEV_PORT
 js: yarn build --watch
+css: bin/rails tailwindcss:watch
