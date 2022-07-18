@@ -8,3 +8,6 @@ db_reset:
 	./bin/rails db:reset
 
 application_setup: bundle db_reset
+
+test:
+	./bin/bundle exec rspec

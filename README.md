@@ -7,6 +7,11 @@ A simple application that displays all payment requests submitted by the contrac
 - Postgres 14
 - RabbitHQ 3.10.6
 
+### Clone Repo
+```shell
+git clone git@github.com:ali-ehmed/pilot-manager-app.git
+```
+
 ### Setup Application
 ```shell
 make application_setup
@@ -15,4 +20,9 @@ make application_setup
 ### Start App
 ```shell
 make server
+```
+
+### Run tests
+```shell
+make test
 ```

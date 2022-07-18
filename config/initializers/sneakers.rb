@@ -3,10 +3,10 @@ CONTRACTOR_EXCHANGES = [
 ].freeze
 
 Sneakers.configure(
-  connection: Bunny.new,
+  connection: BunnyClient.connection,
   exchange_type: 'fanout',
   log: STDOUT,
-  worker: 4,
+  worker: 1,
   pid_path: 'tmp/pids/sneakers.pid',
   env: ENV['RAILS_ENV'],
   durable: false,
