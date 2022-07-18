@@ -1,24 +1,18 @@
-# README
+# Pilot Assignment: Managers App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A simple application that displays all payment requests submitted by the contractor. The manager can only accept or reject the payment request. The acceptance/rejection of payment request should be handled by the manager app publishing an event and the contractor app processing the event to update the status for the contractor.
 
-Things you may want to cover:
+### Pre-requisites
+- Ruby 3.0.3
+- Postgres 14
+- RabbitHQ 3.10.6
 
-* Ruby version
+### Setup Application
+```shell
+make application_setup
+```
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Start App
+```shell
+make server
+```
