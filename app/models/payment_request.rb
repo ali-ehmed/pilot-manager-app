@@ -12,7 +12,7 @@ class PaymentRequest < ApplicationRecord
   }.freeze
 
   serialize :payment_payload, HashSerializer
-  store_accessor :payment_payload, [:amount, :status, :currency, :description], prefix: :payment
+  store_accessor :payment_payload, [:amount, :status, :currency, :description, :request_sent_at], prefix: :payment
 
   scope :latest, -> { order(created_at: :desc) }
 

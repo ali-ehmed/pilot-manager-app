@@ -9,6 +9,7 @@
     <th>Currency</th>
     <th>Description</th>
     <th>Status</th>
+    <th>Request sent at</th>
     <th></th>
   </tr>
   </thead>
@@ -19,6 +20,13 @@
       <td><%= payment_request.payment_currency.upcase %></td>
       <td><%= payment_request.payment_description %></td>
       <td><%= display_approve_label(payment_request.approved) %></td>
+      <td>
+        <% if payment_request.payment_request_sent_at %>
+          <%= l(payment_request.payment_request_sent_at.to_datetime, format: :long) %>
+        <% else %>
+          ---
+        <% end %>
+      </td>
       <td>
         <%- if payment_request.approved.nil? %>
           <%= link_to 'Approve', payment_request_path(payment_request, approved: true), class: 'btn btn-outline-success btn-sm', method: :put, data: { confirm: 'Approve this payment?' } %>
