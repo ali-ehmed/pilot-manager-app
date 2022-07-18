@@ -4,10 +4,6 @@ RSpec.describe PaymentRequest, type: :model do
   subject { build(:payment_request) }
 
   context 'Instance Methods' do
-    before do
-      allow(MessageBroker::ApprovePayments).to receive(:publish).and_return(nil)
-    end
-
     describe '#approve!' do
       it 'sets approved as true and approved sent at' do
         expect(subject.approved).to be_nil
