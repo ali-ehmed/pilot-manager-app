@@ -8,18 +8,24 @@
     <th>Amount</th>
     <th>Currency</th>
     <th>Description</th>
-    <th>Approved</th>
+    <th>Status</th>
     <th></th>
   </tr>
   </thead>
   <tbody>
     <%- @payment_requests.each do |payment_request| %>
     <tr>
-      <th><%= display_amount(payment_request.payment_amount, payment_request.payment_currency) %></th>
-      <th><%= payment_request.payment_currency.upcase %></th>
-      <th><%= payment_request.payment_description %></th>
-      <th>---</th>
-      <th></th>
+      <td><%= display_amount(payment_request.payment_amount, payment_request.payment_currency) %></td>
+      <td><%= payment_request.payment_currency.upcase %></td>
+      <td><%= payment_request.payment_description %></td>
+      <td><%= display_approve_label(payment_request.approved) %></td>
+      <td>
+        <%- if payment_request.approved.nil? %>
+          <%= link_to 'Approve', payment_request_path(payment_request, approved: true), class: 'btn btn-outline-success btn-sm', method: :put, data: { confirm: 'Approve this payment?' } %>
+          |
+          <%= link_to 'Reject', payment_request_path(payment_request, approved: false), class: 'btn btn-outline-danger btn-sm', method: :put, data: { confirm: 'Reject this payment?' } %>
+        <% end %>
+      </td>
     </tr>
     <% end %>
   </tbody>

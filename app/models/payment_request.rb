@@ -14,5 +14,12 @@ class PaymentRequest < ApplicationRecord
   serialize :payment_payload, HashSerializer
   store_accessor :payment_payload, [:amount, :status, :currency, :description], prefix: :payment
 
-  scope :recently_approved, -> { order(approved_at: :desc) }
+  scope :latest, -> { order(created_at: :desc) }
+
+  def approve!(approved = false)
+    self.approved = approved
+    self.approved_at = Time.now if approved?
+    save!
+    MessageBroker::ApprovePayments.publish(self)
+  end
 end

@@ -45,6 +45,9 @@ gem "sassc-rails"
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
+# Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
+gem "importmap-rails"
+
 gem "tailwindcss-rails", "~> 2.0"
 
 gem "bootstrap", "~> 5.1"
