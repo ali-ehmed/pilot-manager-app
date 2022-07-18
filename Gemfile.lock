@@ -80,6 +80,8 @@ GEM
     bunny (2.19.0)
       amq-protocol (~> 2.3, >= 2.3.1)
       sorted_set (~> 1, >= 1.0.2)
+    bunny-mock (1.7.0)
+      bunny (>= 1.7)
     concurrent-ruby (1.1.10)
     crass (1.0.6)
     cssbundling-rails (1.1.1)
@@ -257,6 +259,7 @@ DEPENDENCIES
   bootsnap
   bootstrap (~> 5.1)
   bunny (>= 2.9.2)
+  bunny-mock
   cssbundling-rails
   database_cleaner-active_record
   debug
